@@ -1,10 +1,13 @@
-
-const dealButton = document.querySelector('#deal-button');
+//grabbing the hand fields
 const dealerHand = document.querySelector('#dealer-hand');
-const hitButton = document.querySelector('#hit-button');
 const playerHand = document.querySelector('#player-hand');
+//grabbing the buttons
+const dealButton = document.querySelector('#deal-button');
+const hitButton = document.querySelector('#hit-button');
+const standButton = document.querySelector('#stand-button');
 
-dealButton.addEventListener('click', function(){
+//dealing the cards to the both players
+dealButton.addEventListener('click', function(e){
     const card1 = document.createElement('img');
     const card2 = document.createElement('img');
     const card3 = document.createElement('img');
@@ -20,7 +23,8 @@ dealButton.addEventListener('click', function(){
 
 })
 
-hitButton.addEventListener('click', function(){
+//hitting the player hand
+hitButton.addEventListener('click', function(e){
     const card = document.createElement('img');
     card.setAttribute('src', './cards/3D.jpg');
     playerHand.append(card);
