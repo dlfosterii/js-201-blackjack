@@ -12,6 +12,7 @@
 }
 
 #dealer-hand, #player-hand {
+    display: flex;
     background-color: yellowgreen;
     height: 100px;
     width: 75%;
@@ -24,4 +25,8 @@
     width: 75%;
 }
 
-#stand-button, #deal-button, 
+img {
+    height: 90%;
+    padding: 2px;
+    padding-top: 5px;
+}
