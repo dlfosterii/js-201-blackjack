@@ -1,0 +1,27 @@
+#table {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    width: 50vw;
+    border: solid 5px black;
+    border-radius: 3%;
+}
+
+#messages {
+    height: 60px;
+}
+
+#dealer-hand, #player-hand {
+    background-color: yellowgreen;
+    height: 100px;
+    width: 75%;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+}
+
+#stand-button, #deal-button, 
