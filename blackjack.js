@@ -1,6 +1,6 @@
 //grabbing the hand fields
-const dealerHand = document.querySelector('#dealer-hand');
-const playerHand = document.querySelector('#player-hand');
+const dealerField = document.querySelector('#dealer-hand');
+const playerField = document.querySelector('#player-hand');
 //grabbing the buttons
 const dealButton = document.querySelector('#deal-button');
 const hitButton = document.querySelector('#hit-button');
@@ -8,25 +8,57 @@ const standButton = document.querySelector('#stand-button');
 
 //dealing the cards to the both players
 dealButton.addEventListener('click', function(e){
-    const card1 = document.createElement('img');
-    const card2 = document.createElement('img');
-    const card3 = document.createElement('img');
-    const card4 = document.createElement('img');
-    card1.setAttribute('src', './cards/3D.jpg');
-    card2.setAttribute('src', './cards/blue_back.jpg');
-    card3.setAttribute('src', './cards/8H.jpg');
-    card4.setAttribute('src', './cards/JC.jpg');
-    dealerHand.append(card1);
-    dealerHand.append(card2);
-    playerHand.append(card3);
-    playerHand.append(card4 );
+    const card1 = getRandomCard();
+    const card2 = getRandomCard();
+    const card3 = getRandomCard();
+    const card4 = getRandomCard();
+    dealerField.append(card1);
+    dealerField.append(card2);
+    playerField.append(card3);
+    playerField.append(card4);
 
 })
 
 //hitting the player hand
 hitButton.addEventListener('click', function(e){
-    const card = document.createElement('img');
-    card.setAttribute('src', './cards/3D.jpg');
-    playerHand.append(card);
+    const card = getRandomCard();
+
+    playerField.append(card);
 
 })
+
+//creating the deck of cards
+
+const suits = ['H', 'C', 'D', 'S'];
+const faces = ['A', '2','3','4','5','6','7','8','9','10','J','Q','K'];
+
+function createDeck (){
+    let deck = []
+    for (suit of suits){
+        for (face of faces){
+            let card = {suit, face}
+            deck.push(card)
+        }
+
+    }
+return deck
+    }
+
+
+/// deal the cards
+let deck = createDeck()
+let dealerHand = []
+let playerHand = []
+
+
+function getRandomCard() {
+    let cardToRemove =  deck[Math.floor(Math.random() * Math.floor(deck.length))];
+    deck = deck.filter(function(card){
+        return card != cardToRemove
+    })
+const cardImage = document.createElement('img') 
+cardImage.setAttribute('src', `./cards/${cardToRemove.face}${cardToRemove.suit}.jpg`)
+return cardImage
+}
+
+
