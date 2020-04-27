@@ -6,8 +6,14 @@ const dealButton = document.querySelector('#deal-button');
 const hitButton = document.querySelector('#hit-button');
 const standButton = document.querySelector('#stand-button');
 
+function reloadPage(){
+    location.reload();
+    return false;
+};
+
 //dealing the cards to the both players
 dealButton.addEventListener('click', function(e){
+    // reloadPage();
     const card1 = getRandomCard();
     const card2 = getRandomCard();
     const card3 = getRandomCard();
@@ -16,13 +22,11 @@ dealButton.addEventListener('click', function(e){
     dealerField.append(card2);
     playerField.append(card3);
     playerField.append(card4);
-
 })
 
 //hitting the player hand
 hitButton.addEventListener('click', function(e){
     const card = getRandomCard();
-
     playerField.append(card);
 
 })
